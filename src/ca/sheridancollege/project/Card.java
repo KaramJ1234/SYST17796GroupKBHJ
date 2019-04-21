@@ -1,26 +1,112 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
+/*
+Class name: Card.java  
+Name:       Javier Nievas
+Date:       218-April-2019
+ 
+Description:this is a class that has all the attriubutes of one card e.g setting
+                                            the name, value and shape of a card.
  */
-package ca.sheridancollege.project;
+package nievasj;
 
 /**
- * A class to be used as the base Card class for the project. Must be general
- * enough to be instantiated for any Card game. Students wishing to add to the code 
- * should remember to add themselves as a modifier.
- * @author dancye, 2018
+ * This class represents an Card with Price, Quantity and Flavor attributes.
+ *
+ * @author Javier Nievas
  */
-public abstract class Card 
-{
-    //default modifier for child classes
-    
+public class Card {
+
+    private String cardName; //flavour enum
+    private int cardValue;           // Quantity field
+    private char cardFigure;
+
     /**
-     * Students should implement this method for their specific children classes 
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
+     * Default constructor
      */
-    
+    public Card() {
+    }
+
+    /**
+     * Constructor with three attributes flavor, price and value.
+     *
+     * @param cardName name of the card
+     * @param cardValue value that the card holds
+     * @param cardFigure the shape on the card
+     */
+    public Card(String cardName, int cardValue, char cardFigure) {
+        this.cardName = cardName;
+        this.cardValue = cardValue;
+        this.cardFigure = cardFigure;
+
+    }
+
+    /**
+     *
+     *
+     * @return the name set on the card
+     */
+    public String getCardName() {
+        return cardName;
+    }
+
+    /**
+     *
+     *
+     * @param cardName set what ever name is passed in the parameter
+     */
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+
+    /**
+     *
+     *
+     * @return the shape of the card
+     */
+    public char getCardFigure() {
+        return cardFigure;
+    }
+
+    /**
+     *
+     *
+     * @param cardFigure this takes only a char to set the shape of the card
+     */
+    public void setCardFigure(char cardFigure) {
+        this.cardFigure = cardFigure;
+    }
+
+    /**
+     * this methods return the value on the card if it is greater then 10 then
+     * 10 is returned
+     *
+     * @return the value of the card
+     */
+    public int getCardValue() {
+        if (cardValue > 10) {
+            return 10;
+        }
+        return cardValue;
+    }
+
+    /**
+     * this method will set the value of the card
+     *
+     * @param cardValue takes int as the value of the card
+     */
+    public void setCardValue(int cardValue) {
+        this.cardValue = cardValue;
+    }
+
+    /**
+     * this method is used to print out the info of one card
+     *
+     * @return a string that has the card name, card shape and the value of the
+     * card
+     */
     @Override
-    public abstract String toString();
-    
+    public String toString() {
+        return String.format("\n%7s %2s %2s %7d", cardName, "of", cardFigure,
+                getCardValue());
+
+    }
 }

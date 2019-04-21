@@ -1,48 +1,101 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
+/*
+Class name: Player.java  
+Name:       Javier Nievas
+Date:       18-Apr-2019
+ 
+Description:  this class has all the attribute od player in the game
  */
-package ca.sheridancollege.project;
+package nievasj;
 
 /**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- * @author dancye, 2018
+ *
+ * @author Javier Nievas
  */
-public abstract class Player 
-{
-    private String playerID; //the unique ID for this player
-    
+public class Player {
+
+    private String playerName;
+    private double chips;
+
     /**
-     * A constructor that allows you to set the player's unique ID
-     * @param name the unique ID to assign to this player.
+     * default constructor
      */
-    public Player(String name)
-    {
-        playerID= name;
-    }
-    
-    /**
-     * @return the playerID
-     */
-    public String getPlayerID() 
-    {
-        return playerID;
+    public Player() {
     }
 
     /**
-     * Ensure that the playerID is unique
-     * @param givenID the playerID to set
+     * constructor with param to set the player name and there bets
+     *
+     * @param playerName the name of the player playing as a string
+     * @param chips the bet the player wants the set in the game as a double
      */
-    public void setPlayerID(String givenID) 
-    {
-        playerID = givenID;
+    public Player(String playerName, double chips) {
+        this.playerName = playerName;
+        this.chips = chips;
     }
-    
+
     /**
-     * The method to be instantiated when you subclass the Player class
-     * with your specific type of Player and filled in with logic to play your game.
+     * this is the method to get the player name
+     *
+     * @return string that has the player name
      */
-    public abstract void play();
-    
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    /**
+     * this method is used to set the player name
+     *
+     * @param playerName take a string and then sets the name of the player
+     */
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    /**
+     * this method is used to get the amount that the player is betting
+     *
+     * @return double that is the bet set by the player
+     */
+    public double getChips() {
+        return chips;
+    }
+
+    /**
+     * this method is used to set the bet the player wants
+     *
+     * @param chips the bet amount in double
+     */
+    public void setChips(double chips) {
+        this.chips = chips;
+    }
+
+    /**
+     * this method is used to add more bet by the player
+     *
+     * @param chips amount that is double that will be add to the pervious bet
+     */
+    public void addChips(double chips) {
+        this.chips += chips;
+    }
+
+    /**
+     * this is method is used to remove the bet already set by the player
+     *
+     * @param chips amount that is double which will be subtracted from the bet
+     */
+    public void subChips(double chips) {
+        this.chips -= chips;
+    }
+
+    /**
+     * this method is used to print that info of the player and the amount of
+     * the bet
+     *
+     * @return a string that contains all the info of the player
+     */
+    @Override
+    public String toString() {
+        return "PlayerName=" + playerName + "/nchips=" + chips;
+    }
+
 }
